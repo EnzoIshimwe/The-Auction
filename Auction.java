@@ -83,18 +83,18 @@ public class Auction
     // Q6
     {
         if((lotNumber >= 1) && (lotNumber < nextLotNumber)) {
-            for(Lot alot: ListOflots){
-                if (aLot.getnumber() == lotNumber){
+            for(Lot alot: listOfLots){
+                if (alot.getNumber() == lotNumber){
                     return alot;
                 }
             }
-        }
-         return selectedLot;{
-
-            }
-        else {
+            System.out.println("Lot number:" + lotNumber + 
+            "seem to be been removed");
+            return null;
+         }
+        else{
             System.out.println("Lot number: " + lotNumber +
-                               " does not exist.");
+                               "is invalid");
             return null;
         }
     }
@@ -134,20 +134,18 @@ public class Auction
 */
 public Lot removeLot(int number){
 boolean macth = false ;
-Iterartor<Lot>it = listOflots.iterator();
+Iterator<Lot>it = listOfLots.iterator();
 Lot lot = null ;
-while (it.hasNext() & match == false) {
-    lot = it.next();
-    if (lot.getNumber() == number) {
+while (it.hasNext()) {
+    Lot l = it.next();
+    if (l.getNumber() == number) {
         it.remove();
-        match = true ;
-        System.out.println(number + "has been removed.");
+        return l;
+        
     }
 }
-if (match == false ) {
-    System.out.println("Lot number" + number + "does not exist");
-    return null ;
+return null ;
 }
 }
-}
+
 
